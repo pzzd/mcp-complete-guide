@@ -1,0 +1,95 @@
+# MCP Server class on O'Reilly
+
+## Notes from class
+MCP = Model Context Protocol
+
+Standard way/protocol for AI host to access tools by sending requests via MCP client to tool's MCP server
+Many companies have their own MCP Server
+this means I would need to make my own MCP server for APIs that do not yet have one (eg LDAP)
+
+
+### Set up environment
+required dependencies for class:
+- nvm
+- claude desktop
+- openai api key
+- uv
+- github
+
+optional dependencies for class:
+- azure portal account
+- or some other remote vm
+
+[MCP servers by legit maintainers](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file)
+
+### Use Airbnb MCP in Claude desktop
+claude desktop "mcp airbnb: spawn npx ENOENT":
+- i don't have node or npx installed
+- brew install node, thanks claude sonnet
+- restart claude and now it works
+- https://gist.github.com/gregelin/b90edaef851f86252c88ecc066c93719
+
+Edit /Users/pezzutidyer/Library/Application Support/Claude/claude_desktop_config.json
+
+
+
+Install stuff:
+```
+ 1002  cd hello-world
+ 1003  uv init
+ 1004  uv venv
+ 1011  . .venv/bin/activate
+```
+
+had to install python 3.12, then change pyproject.toml to use >=3.10. then:
+```
+ uv add 'mcp[cli]'
+```
+
+[Class materials, I think](https://github.com/pzzd/henry-habib-mcp)
+
+### Hello World MCP Server
+
+```
+ mcp dev weather.py 
+Need to install the following packages:
+@modelcontextprotocol/inspector@0.17.2
+Ok to proceed? (y) y
+```
+
+
+add directly to Claude desktop with this command. It edits claude_desktop_config.json. 
+```
+mcp install weather.py
+```
+
+### MCP client
+
+In new dir, set up a virtual env.
+```
+mkdir cd 1074  cd client
+uv init
+uv venv
+source .venv/bin/activate
+uv add 'mcp[cli]'
+ ```
+---
+
+## Other thoughts
+
+Announcing the Official PHP SDK for MCP
+https://thephp.foundation/blog/2025/09/05/php-mcp-sdk/
+https://github.com/modelcontextprotocol/php-sdk
+
+### Ollama
+
+An example of an MCP host might be Ollama API Generate chat message, tools attribute
+- https://docs.ollama.com/api/chat#body-tools
+
+Can declare tools for Ollama with model llama3.1
+- https://www.ibm.com/think/tutorials/local-tool-calling-ollama-granite
+- https://dev.to/jonigl/your-first-mcp-server-quick-35eg
+
+
+Data sources:
+- https://www.census.gov/topics/population/genealogy/data/2010_surnames.html
