@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "airbnb": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@openbnb/mcp-server-airbnb",
+        "--ignore-robots-txt"
+      ]
+    },
+    "LocalNotes": {
+      "command": "/Users/xxx/.local/bin/uv",
+      "args": [
+        "run",
+        "--frozen",
+        "--with",
+        "mcp[cli]",
+        "mcp",
+        "run",
+        "/Users/xxx/Projects/mcp-complete-guide/server-deepdive/local.py"
+      ]
+    },
+    "Crypto": {
+      "command": "/Users/xxx/Projects/mcp-complete-guide/server-deepdive/.venv/bin/mcp",
+      "args": [
+        "run",
+        "/Users/xxx/Projects/mcp-complete-guide/server-deepdive/crypto.py"
+      ]
+    }
+  }
+}

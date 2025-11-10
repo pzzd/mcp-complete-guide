@@ -73,6 +73,18 @@ uv venv
 source .venv/bin/activate
 uv add 'mcp[cli]'
  ```
+
+
+ ### MCP Server and local files
+
+ Can use local server to serve as gateway beween local files and remote LLMs.
+ 
+
+Run a local server with one of these commands:
+```
+mcp dev local.py
+npx @modelcontextprotocol/inspector uv run local.py
+```
 ---
 
 ## Other thoughts
